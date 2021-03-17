@@ -2,8 +2,9 @@
 import json
 import sys
 from random import choice, randint
+import os
 
-with open("de_schlachter.json", encoding="utf-8-sig") as raw:
+with open(os.path.join(sys.path[0], "de_schlachter.json"), "r", encoding="utf-8-sig") as raw:
     bible = json.load(raw)
 
 chap = choice(bible)["chapters"]

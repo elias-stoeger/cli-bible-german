@@ -17,8 +17,9 @@ if len(sys.argv) == 3:
 # depending on the arguments passed
 try:
     if len(sys.argv) == 1:
-        for i in chap[randint(0, len(chap)-1)]:
-            print(i)
+        verse = chap[randint(0, len(chap)-1)]
+        print(verse[randint(0, len(verse)-1)])
+
     else:
         F = None
         for verse in bible:
@@ -41,5 +42,7 @@ try:
             raise IndexError
 
 
-except IndexError:
+except (IndexError, TypeError):
+    print("Den Befehl habe ich nicht verstanden ...")
     print("Schreib John 1:20 oder John 1 oder John.")
+    print("Du kannst das Script auch ohne Argumente ausführen für einen zufälligen Vers.")

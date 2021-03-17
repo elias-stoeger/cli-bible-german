@@ -9,7 +9,6 @@ with open("de_schlachter.json", encoding="utf-8-sig") as raw:
 chap = choice(bible)["chapters"]
 
 # Determine the Input
-book = sys.argv[1]
 chapters = []
 if len(sys.argv) == 3:
     chapters = sys.argv[2].split(":")

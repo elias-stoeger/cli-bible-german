@@ -22,6 +22,10 @@ try:
         print(verse[randint(0, len(verse)-1)])
 
     else:
+        for i in chapters:
+            if int(i) < 1:
+                raise IndexError
+
         F = None
         for verse in bible:
             if verse["name"] == sys.argv[1]:

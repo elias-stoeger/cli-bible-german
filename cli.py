@@ -28,13 +28,20 @@ try:
 
         F = None
         for verse in bible:
-            if verse["name"] == sys.argv[1]:
+            if "name_ger" in verse and verse["name_ger"].lower() == sys.argv[1].lower() or verse["name"].lower() == sys.argv[1].lower() or verse["abbrev"].lower() == sys.argv[1].lower():
                 F = verse["chapters"]
 
-        if chapters == []:
+        if chapters == [] and sys.argv[1].lower() != "inhalt":
             for line in F:
                 for sub in line:
                     print(sub)
+
+        elif sys.argv[1].lower() == "inhalt":
+            for verse in bible:
+                if "name_ger" in verse:
+                    print(verse["name_ger"], "/", verse["name"], f'({verse["abbrev"]})')
+                else:
+                    print(verse["name"], f'({verse["abbrev"]})')
 
         elif len(chapters) == 2:
             print(F[int(chapters[0]) - 1][int(chapters[1]) - 1])
@@ -50,4 +57,11 @@ try:
 except (IndexError, TypeError):
     print("Den Befehl habe ich nicht verstanden ...")
     print("Schreib John 1:20 oder John 1 oder John.")
-    print("Du kannst das Script auch ohne Argumente ausführen für einen zufälligen Vers.")
+    print("")
+    print("Längere Namen müssen mit Unterstrich geschrieben werden (z.B.: Book_of_Solomon).")
+    print("Bücher mit Nummer sind ohne Abstand zu schreiben (z.B.: 1.Samuel).")
+    print("Es funktionieren Abkürzungen und sowohl die englischen als auch die deutschen Namen.")
+    print("")
+    print("Das Script kann auch ohne Argumente ausgeführt werden für einen zufälligen Vers.")
+    print("")
+    print("Mit dem Befehl 'Inhalt' werden alle Bücher unter einander aufgelistet.")

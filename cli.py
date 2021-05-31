@@ -22,6 +22,11 @@ try:
         print(verse[randint(0, len(verse)-1)])
 
     else:
+        if "-" in chapters[1]:
+            splitter = chapters[1].strip().split("-")
+            chapters[1] = splitter[0]
+            chapters.append(splitter[1])
+
         for i in chapters:
             if int(i) < 1:
                 raise IndexError
@@ -49,6 +54,9 @@ try:
         elif len(chapters) == 1:
             for line in F[int(chapters[0]) - 1]:
                 print(line)
+        elif len(chapters) == 3:
+            for i in range(int(chapters[1]), int(chapters[2]) + 1):
+                print(F[int(chapters[0]) - 1][int(i) - 1])
         else:
             # raise an error if to many arguments are given
             raise IndexError
@@ -56,7 +64,8 @@ try:
 
 except (IndexError, TypeError):
     print("Den Befehl habe ich nicht verstanden ...")
-    print("Schreib John 1:20 oder John 1 oder John.")
+    print("Möglich sind folgende Formate:")
+    print("John\nJohn 1\nJohn 1:20\nJohn 1:20-25")
     print("")
     print("Längere Namen müssen mit Unterstrich geschrieben werden (z.B.: Book_of_Solomon).")
     print("Bücher mit Nummer sind ohne Abstand zu schreiben (z.B.: 1.Samuel).")

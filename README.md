@@ -1,4 +1,4 @@
-# cli_bible_german
+# cli-bible-german
 
 Simple command line bible
 

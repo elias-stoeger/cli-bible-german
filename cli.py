@@ -22,7 +22,7 @@ try:
         print(verse[randint(0, len(verse)-1)])
 
     else:
-        if "-" in chapters[1]:
+        if len(chapters) > 1 and "-" in chapters[1]:
             splitter = chapters[1].strip().split("-")
             chapters[1] = splitter[0]
             chapters.append(splitter[1])
@@ -62,7 +62,7 @@ try:
             raise IndexError
 
 
-except (IndexError, TypeError):
+except (IndexError, TypeError, ValueError):
     print("Den Befehl habe ich nicht verstanden ...")
     print("Möglich sind folgende Formate:")
     print("John\nJohn 1\nJohn 1:20\nJohn 1:20-25")

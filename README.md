@@ -16,6 +16,6 @@ The bible used is the Schlachter bible from
 https://github.com/thiagobodruk/bible
 
 
-This was the prototype for the current release, much cooler:
 
+This was the prototype for the current release, much cooler:
 https://github.com/elias-stoeger/CLI-Bibel

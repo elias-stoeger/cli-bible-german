@@ -15,7 +15,7 @@ You can call the script without arguments for a random verse
 The bible used is the Schlachter bible from
 https://github.com/thiagobodruk/bible
 
-
-
+<br/>
+<br/>
 This was the prototype for the current release, much cooler:
 https://github.com/elias-stoeger/CLI-Bibel
